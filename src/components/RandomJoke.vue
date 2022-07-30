@@ -1,6 +1,6 @@
 <template>
     <div v-if="joke" class="joke">
-        <h1 id="joke-heading" class="green">Joke</h1>
+        <h1 id="joke-heading" class="purple">Joke</h1>
         <h3 id="joke-content-heading">
             {{ joke }}
         </h3>
