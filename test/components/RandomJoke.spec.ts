@@ -8,7 +8,6 @@ describe("RandomJoke.vue", () => {
         vi.mock("../../src/api/JokeApi.ts",() => {
             return {
                 getRandomJoke: () => {
-                    console.log("#######")
                     return {
                         id: 1,
                         joke: "Some funny joke :)"
@@ -21,7 +20,6 @@ describe("RandomJoke.vue", () => {
         const jokeHeading = wrapper.find("#joke-heading")
         expect(jokeHeading.text()).toBe("Joke")
         const jokeContentHeading = wrapper.find("#joke-content-heading")
-        console.log("$$$$$$$")
         expect(jokeContentHeading.text()).toBe("Some funny joke :)")
     })
 })
