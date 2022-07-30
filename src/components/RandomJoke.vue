@@ -5,7 +5,7 @@
             {{ joke }}
         </h3>
         <div>
-            <a class="purple" href="#" @click="fetchRandomJoke">refresh</a>
+            <a id="joke-refresh-link" class="purple" href="#" @click="fetchRandomJoke">refresh</a>
         </div>
     </div>
 </template>
