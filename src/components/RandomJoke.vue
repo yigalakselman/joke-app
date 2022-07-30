@@ -1,0 +1,48 @@
+<template>
+    <div v-if="joke" class="joke">
+        <h1 class="green">Joke</h1>
+        <h3>
+            {{ joke }}
+        </h3>
+    </div>
+</template>
+
+<script>
+import {getRandomJoke} from "@/api/JokeApi"
+export default {
+    name: "RandomJoke",
+    data() {
+        return {
+            joke: null
+        }
+    },
+    async mounted() {
+        const res = await getRandomJoke()
+        this.joke = res.joke
+    }
+}
+</script>
+
+<style scoped>
+h1 {
+    font-weight: 500;
+    font-size: 2.6rem;
+    top: -10px;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+.joke h1,
+.joke h3 {
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .joke h1,
+    .joke h3 {
+        text-align: left;
+    }
+}
+</style>

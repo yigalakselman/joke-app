@@ -22,10 +22,10 @@ const joke = {
 }
 
 export const restHandlers = [
-    rest.get('https://v2.jokeapi.dev/joke/Any?safe=true&type=single', (req, res, ctx) => {
-        const safe = req.url.searchParams.get("safe")
+    rest.get('https://v2.jokeapi.dev/joke/Any', (req, res, ctx) => {
+        const safeMode = req.url.searchParams.has("safe-mode")
         const type = req.url.searchParams.get("type")
-        if(safe === 'true' && type === 'single'){
+        if(safeMode && type === 'single'){
             return res(ctx.status(200), ctx.json(joke))
         }
         else {
