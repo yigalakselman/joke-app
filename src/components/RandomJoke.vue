@@ -4,6 +4,9 @@
         <h3 id="joke-content-heading">
             {{ joke }}
         </h3>
+        <div>
+            <a class="purple" href="#" @click="fetchRandomJoke">refresh</a>
+        </div>
     </div>
 </template>
 
@@ -16,9 +19,14 @@ export default {
             joke: null
         }
     },
-    async mounted() {
-        const res = await getRandomJoke()
-        this.joke = res.joke
+    mounted() {
+        this.fetchRandomJoke()
+    },
+    methods: {
+        async fetchRandomJoke(){
+            const res = await getRandomJoke()
+            this.joke = res.joke
+        }
     }
 }
 </script>
@@ -38,11 +46,17 @@ h3 {
 .joke h3 {
     text-align: center;
 }
+.joke div {
+    text-align: center;
+}
 
 @media (min-width: 1024px) {
     .joke h1,
     .joke h3 {
         text-align: left;
+    }
+    .joke div {
+        text-align: right;
     }
 }
 </style>
