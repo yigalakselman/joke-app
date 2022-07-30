@@ -1,4 +1,4 @@
-import {mount} from "@vue/test-utils"
+import {shallowMount} from "@vue/test-utils"
 import {describe, it, expect, vi } from "vitest"
 import RandomJoke from "../../src/components/RandomJoke.vue"
 
@@ -26,7 +26,7 @@ describe("RandomJoke.vue", () => {
     })
 
     it("should render a random joke", async () => {
-        const wrapper = await mount(RandomJoke) // await to be mounted
+        const wrapper = await shallowMount(RandomJoke) // await to be mounted
         await wrapper.vm.$nextTick() // await for mounted to complete
         const jokeHeading = wrapper.find("#joke-heading")
         expect(jokeHeading.text()).toBe("Joke")
@@ -36,7 +36,7 @@ describe("RandomJoke.vue", () => {
         expect(refreshLink.text()).toBe("refresh")
     })
     it("should refresh the displayed joke on refresh link click", async () => {
-        const wrapper = await mount(RandomJoke) // await to be mounted
+        const wrapper = await shallowMount(RandomJoke) // await to be mounted
         await wrapper.vm.$nextTick() // await for mounted to complete
         const jokeContentHeading = wrapper.find("#joke-content-heading")
         expect(jokeContentHeading.text()).toBe("Another funny joke :)")
