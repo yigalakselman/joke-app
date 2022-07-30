@@ -45,7 +45,7 @@ afterAll(() => server.close())
 // Reset handlers after each test `important for test isolation`
 afterEach(() => server.resetHandlers())
 
-describe("JokeApi", () => {
+describe("JokeApi.ts", () => {
     it('should return a random joke', async () => {
         const getRandomJokeRes = await getRandomJoke()
         expect(getRandomJokeRes.id).toBe(joke.id)

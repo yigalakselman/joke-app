@@ -5,7 +5,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    // Get TypeScript working with the global APIs
+    "types": ["vitest/globals"]
   },
 
   "references": [
